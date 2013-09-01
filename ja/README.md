@@ -1,3 +1,6 @@
+
+## 注：まだ作業中です！
+
 リアクティブ マニフェスト
 ----------------------
 
@@ -128,26 +131,44 @@ _It is important to understand that the goal is not to try to implement transpar
 
 ### なぜ重要なのか Why it is Important
 
-Application downtime is one of the most damaging issues that can occur to a business. The usual implication is that operations simply stop, leaving a hole in the revenue stream. In the long term it can also lead to unhappy customers and a poor reputation, which will hurt the business more severely. It is surprising that application resilience is a requirement that is largely ignored or retrofitted using ad-hoc techniques. This often means that it is addressed at the wrong level of granularity using tools that are too coarse-grained. A common technique uses application server clustering to recover from runtime and server failures. Unfortunately, server failover is extremely costly and also dangerous — potentially leading to cascading failures taking down a whole cluster. The reason is that this is the wrong level of granularity for failure management which should instead be addressed using fine-grained resilience on the component level.
+_Application downtime is one of the most damaging issues that can occur to a business. The usual implication is that operations simply stop, leaving a hole in the revenue stream. In the long term it can also lead to unhappy customers and a poor reputation, which will hurt the business more severely. It is surprising that application resilience is a requirement that is largely ignored or retrofitted using ad-hoc techniques. This often means that it is addressed at the wrong level of granularity using tools that are too coarse-grained. A common technique uses application server clustering to recover from runtime and server failures. Unfortunately, server failover is extremely costly and also dangerous — potentially leading to cascading failures taking down a whole cluster. The reason is that this is the wrong level of granularity for failure management which should instead be addressed using fine-grained resilience on the component level._
+
+アプリケーションの中断時間は、ビジネスに起こりうつ最も痛手な問題のひとつです。普通に暗示することは、業務がたやすくストップし、収益を生むシステムに穴を開けてしまうことになります。長い目で見た時、不満な顧客と悪い評判を生み出し、ビジネスをもっと深刻に傷つけてしまいます。アプリケーションの回復力が、要件から全く無視される、または、一時しのぎな技術の据え付けで済ましてしまうことは驚くべきことです。このことは、よく粗すぎる粒度のツールを使って、異なったレベルの粒度の問題として位置づけられてしまうことも意味します。一般的な技術として、実行時のサーバの故障から回復するためにサーバクラスタリングがあります。不運なことに、サーバーのフェイルオーバーは著しくコストが掛かり、また同時に危険でもあります。- 失敗の連鎖を生む可能性があり、クラスタ全体をダウンさせてしまいます。これは間違ったレベルの粒度の故障管理であり、代わりにコンポーネントレベルの微細な回復力によって代替されるべきものです。
 
 Merriam-Webster defines resilience as:
+
+Merriam-Webster は、resilience を次のように定義しています。
 
 - *the ability of a substance or object to spring back into shape*
 - *the capacity to recover quickly from difficulties*
 
-In a reactive application resilience is not an afterthought but part of the design from the beginning. Making failure a first class construct in the programming model provides the means to react to and manage it, which leads to applications that are highly tolerant to failure by being able to heal and repair themselves at runtime. Traditional fault handling cannot achieve this because it is defensive in the small and too aggressive in the large — you either handle exceptions right where and when they happen or you initiate a failover of the whole application instance.
+- *元々の形に息を吹き返す、物質や物体の能力* 
+- *困難から迅速に回復する能力*
+
+_In a reactive application resilience is not an afterthought but part of the design from the beginning. Making failure a first class construct in the programming model provides the means to react to and manage it, which leads to applications that are highly tolerant to failure by being able to heal and repair themselves at runtime. Traditional fault handling cannot achieve this because it is defensive in the small and too aggressive in the large — you either handle exceptions right where and when they happen or you initiate a failover of the whole application instance._
+
+リアクティブなアプリケーションにおいて、回復力は後から考えるものではなく、当初の設計の一部です。そのプログラミングモデルにおいて失敗をファーストクラスの構成物としてみなすことは、反射することと管理するという意味を与えます。実行時に回復でき修復できることで失敗に対しての高い耐久力があるアプリケーションへと導きます。伝統的な失敗への対処では、小さな環境では防御的すぎて、大きな環境では挑戦的すぎるため、これを達成することができません。- いつどこで起ころうと、例外を(ひとつひとつ)
+正しく対処するか、アプリケーションインスタンス全体にフェールオーバーを備えるか(の両極端)になってしまいます。
 
 ### キーとなる構成要素 Key Building Blocks
 
-In order to *manage failure* we need a way to *isolate* it so it doesn’t spread to other healthy components, and to *observe* it so it can be managed from a safe point outside of the failed context. One pattern that comes to mind is the [bulkhead pattern](http://skife.org/architecture/fault-tolerance/2009/12/31/bulkheads.html), illustrated by the picture, in which a system is built up from safe compartments so that if one of them fails the other ones are not affected. This prevents the classic problem of [cascading failures](http://en.wikipedia.org/wiki/Cascading_failure) and allows the management of problems in isolation.
+_In order to *manage failure* we need a way to *isolate* it so it doesn’t spread to other healthy components, and to *observe* it so it can be managed from a safe point outside of the failed context. One pattern that comes to mind is the [bulkhead pattern](http://skife.org/architecture/fault-tolerance/2009/12/31/bulkheads.html), illustrated by the picture, in which a system is built up from safe compartments so that if one of them fails the other ones are not affected. This prevents the classic problem of [cascading failures](http://en.wikipedia.org/wiki/Cascading_failure) and allows the management of problems in isolation._
+
+*失敗を管理* するためには、他の健全なコンポーネントに波及しないよう *孤立させる* (isolate) 方法と、失敗のコンテキストの外側にある安全なポイントから管理されるように *観察する* (observe) 方法とが必要です。思いつくひとつのパターンは、(船の)隔壁パターン([bulkhead pattern](http://skife.org/architecture/fault-tolerance/2009/12/31/bulkheads.html)) です。図にあるように、ひとつが壊れても他が影響を受けないように、安全な区画によってシステムを築くことです。これにより、古典的な問題である連鎖的な失敗 ([cascading failures](http://en.wikipedia.org/wiki/Cascading_failure)) を防ぐことができ、問題を孤立した領域で管理することができます。
 
 ![fig 3 Bulkheads](../images/tank.png)
 
-The event-driven model, which enables scalability, also has the necessary primitives to realize this model of failure management. The loose coupling in an event-driven model provides fully isolated components in which failures can be captured together with their context, encapsulated as messages, and sent off to other components that can inspect the error and decide how to respond.
+_The event-driven model, which enables scalability, also has the necessary primitives to realize this model of failure management. The loose coupling in an event-driven model provides fully isolated components in which failures can be captured together with their context, encapsulated as messages, and sent off to other components that can inspect the error and decide how to respond._
 
-This approach creates a system where business logic remains clean, separated from the handling of the unexpected, where failure is modeled explicitly in order to be compartmentalized, observed, managed and configured in a declarative way, and where the system can heal itself and recover automatically. It works best if the compartments are structured in a hierarchical fashion, much like a large corporation where a problem is escalated upwards until a level is reached which has the power to deal with it.
+スケーラビリティを可能にするイベント駆動モデルは、この失敗管理のモデルを実現する必須の(原始性？土台？)を持ち合わせています。イベント駆動モデルにおける疎結合性は、それらのコンテキストの中で一緒に捕える事が可能な失敗を完全に孤立化させるコンポーネントを提供し、メッセージとしてカプセル化し、他のコンポーネントに投げてしまい、sの中でエラーを分析し、どのように応答するかを決定することができます。
 
-The beauty of this model is that it is purely event-driven, based upon reactive components and asynchronous events and therefore *location transparent*. In practice this means that it works in a distributed environment with the same semantics as in a local context.
+_This approach creates a system where business logic remains clean, separated from the handling of the unexpected, where failure is modeled explicitly in order to be compartmentalized, observed, managed and configured in a declarative way, and where the system can heal itself and recover automatically. It works best if the compartments are structured in a hierarchical fashion, much like a large corporation where a problem is escalated upwards until a level is reached which has the power to deal with it._
+
+このアプローチは、ビジネスロジックをクリーンに保ち予期せぬ場所の対処から分離するシステム、失敗は、区画化し観察し管理し宣言的な方法で設定するために明示的にモデル化されたシステム、それ自身を治癒し自動的に復活するシステムを作り出します。もし、区画が階層的なやり方で構造化され、処理する力を持つレベルまで到達するまで、問題が上にエスカレートとする大きな企業のように素晴らしく動作します。
+
+_The beauty of this model is that it is purely event-driven, based upon reactive components and asynchronous events and therefore *location transparent*. In practice this means that it works in a distributed environment with the same semantics as in a local context._
+
+このモデルの美しさは、純粋にイベント駆動であり、リアクティブなコンポーネントと非同期なイベントにもとづいており、結果的に *位置透過* になります。実際のところ、ローカルのコンテキストであるのと同じ動作方法で分散環境で動作することを意味します。
 
 ## インタラクティブ Interactive
 
@@ -155,21 +176,37 @@ The beauty of this model is that it is purely event-driven, based upon reactive 
 
 Interactive applications are real-time, engaging, rich and collaborative. Businesses create an open and ongoing dialog with their customers by welcoming them through interactive experiences. This makes them more efficient, creates a feel of being connected and equipped to solve problems and accomplish tasks. One example is Google Docs which enables users to edit documents collaboratively, in real-time — allowing them to see each other’s edits and comments live, as they are made.
 
+インタラクティブなアプリケーションは、リアルタイムであり、魅力があり、リッチでコラボレーションに富んでいます。ビジネスは、インタラクティブな体験を通して顧客を歓迎し、オープンで継続的な対話を作ります。これにより、ビジネスはより効率的になり、問題を解決しタスクを完遂するために繋がり続け備え付けられた感じを提供します。ひとつの例ですが、Google Docs は、ドキュメントをリアルタイムに協力して編集することを可能にます。- それらが作られたかのように(？)、お互いの編集とコメントを見ながらです。
+ 
 Users are empowered when they can interact with data that is transformed into meaningful information in real-time. Interactive applications make collaboration on this information inherent in every interface so people communicate more effectively and more often; this is deepened further by increasing the feedback granularity from traditional whole-page behavior down to a per-item level, e.g. in a single-page email web-client. Instantaneous social interactions over large distances are radically transforming how people engage with information and with each other. For instance, GitHub is revolutionizing developer collaboration through “Social Coding” with an interactive browser-based application and of course Twitter has profoundly changed the way news are spread.
 
+リアルタイムでデータが意味ある情報に変換されて相互作用する時、ユーザーは力付けられます(？)。インタラクティブなアプリケーションは、どのインタフェースにおいても引き継いでいくこの情報を作り出します。伝統的なページ全体の扱いからアイテムレベルにフィードバックを小さく増やしていくことでもっと深くに行きます。 例としてEメールのシングル・ページのウェブクライアントがあります。遠い距離を超えた瞬時のソーシャルなインタラクションは、人々がどのように情報と向き合い、お互いにやりとりしていくかを根本的に変えていきます。たとえば、GitHub は、インタラクティブなブラウザベースのアプリケーションにより、"Social Coding" を通じて開発者のコラボレーションに革命を起こしつつあります。もちろん、Twitter は、ニュースが拡散する方法を根本的に変えてきました。
+
 Build upon an event-driven foundation, reactive applications are well equipped to be interactive. Scalability is necessary to retain this property when the application becomes popular, and resilience ensures that its users will continually enjoy its function.
+
+イベント駆動の基礎の上に構築することで、リアクティブなアプリケーションは、インタラクティブ性も同時にうまく備えています。スケーラビリティは、アプリケーションに人気が出てきた時、この属性(？)を保つことは必須です。回復力はユーザーが継続的にその機能を楽しみ続けることを確かにします(？)。
 
 ### キーとなる構成要素 Key Building Blocks
 
 Reactive applications use observable models, event streams and stateful clients.
 
+リアクティブなアプリケーションは、観察可能なモデルとイベントストリーム、ステートフルなクライアントです。	
+
 Observable models enable other components to receive events when state changes. This can provide a real-time connection between users and systems. For example, when multiple users work concurrently on the same dataset, changes can be reactively synchronized bi-directionally between them.
+
+観察可能なモデルは、他のコンポーネントが状態が変化した時にイベントを受け取ることを可能にします。これは、ユーザーとシステムの間にリアルタイムの接続を提供します。たとえば、複数のユーザーが同じデータセットに同時並行的に作用するとき、変更は、リアクティブにそれらの間で双方向に同期することができます。
 
 Event streams form the basic abstraction on which this connection is built. Keeping them reactive means avoiding blocking and instead allowing asynchronous and non-blocking transformations. For example a stream of real-time data could be passed through a live projection that produces a new stream of analyzed data.
 
+イベント・ストリームは、この接続が構築されたところに基本的な抽象性を形作る(？) それらをリアクティブに保つことはブロッキングを避ける事を意味し、代わりに非同期でノンブロッキングな変換を可能にします。たとえば、リアルタイムデータのストリームは、解析されたデータの新たなストリームを生み出す生の投影(？)を通じて受け渡されます。
+
 Most reactive applications have rich web and mobile clients which create an engaging user experience. These applications execute logic and store state on the client-side in which observable models provide a mechanism to update user interfaces in real-time when data changes. Technologies like WebSockets or Server-Sent Events enable user interfaces to be connected directly with event streams so the event-driven system extends all the way from the back-end to the client. This allows reactive applications to push events to browser and mobile applications in a scalable and resilient way by using asynchronous and non-blocking data transfer.
 
+もっともリアクティブなアプリケーションは、魅力あるユーザー体験を創りだすリッチなウェブとモバイルクライアントです。これらのアプリケーションは、観察可能なモデルがデータが変更された時にリアルタイムでユーザーインタフェースを更新する機甲を提供するクライアントサイドで、ロジックを実行し状態を保持する(？)。Web Socket や サーバプッシュ型イベントのような技術は、イベントストリームに直接的に接続されるユーザーインタフェースを可能にし、イベント駆動システムは、バックエンドからクライアントまで全ての道筋に広げることができます。これにより、リアクティブなアプリケーションは、非同期やノンブロッキングなデータ移送によってスケーラブルで回復力のある方法でイベントをブラウザやモバイルアプリケーションにプッシュすることが可能になります。
+
 With this in mind it becomes apparent how the four qualities *event-driven*, *scalable*, *resilient* and *interactive* are interconnected to form a cohesive whole:
+
+この点を念頭に置くと、四つの本質、*イベント駆動* と *スケーラブル*、*回復力がある*、*インタラクティブ* は凝集性のある全体(？)から相互接続されることが明らかになってきます。
 
 ![fig 4. The Reactive Traits](../images/full-reactive.png)
 
@@ -177,13 +214,16 @@ With this in mind it becomes apparent how the four qualities *event-driven*, *sc
 
 Reactive applications represent a balanced approach to addressing a wide range of contemporary challenges in software development. Building on an *event-driven*, message-based foundation, they provide the tools needed to ensure *scalability* and *resilience*. On top of this they support rich, real-time user *interactions*. We expect that a rapidly increasing number of systems will follow this blueprint in the years ahead.
 
+リアクティブなアプリケーションは、ソフトウェア開発における幅広い現代の困難に向けてのバランスのとれたアプローチを象徴するものです。*イベント駆動* のメッセージを基礎とした基盤の上に構築することで、*スケーラビリティ* と *回復力* を確かにするの必要なツールを提供します。この基板の上に、それらはリッチでリアルタイムなユーザーとの *インタラクション* を支援します。私たちは、急速に増加するシステムがこの見取り図に従っていき何年も先に進んでいくことを期待しています。
+
 [マニフェストにサインしよう(本家へ)](http://www.reactivemanifesto.org/)
 
-## 訳注
+## 訳メモ
 
+* event-driven は、すべて「イベント駆動」にしました。イベントドリブンでもよかったのかもしれません。
 * リアクティブは、敢えてカタカナのままにしました。もし、訳すとしたら反応的ないしは反射的でしょうか。反応的アプリケーション、反応的な設計 ・・・。
 * デプロイと配置は微妙に雰囲気で使い分けました。
+* ノンブロッキングには適切な日本語はなく、また、普及した用語であるとみなしました。
+* レジリエントは、カタカナのままで使うことも考えましたが、それほど一般的ではないため”回復力の/がある”としました。
 
-リアクティブ
-ノンブロッキング
 デカップリング
