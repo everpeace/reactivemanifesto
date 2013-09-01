@@ -1,5 +1,5 @@
 
-## 注：まだ作業中です！
+## 注：まだ作業中です！(最終的には英語は取り除きます)
 
 リアクティブ マニフェスト
 ----------------------
@@ -10,46 +10,45 @@
 
 _Application requirements have changed dramatically in recent years. Only a few years ago a large application had tens of servers, seconds of response time, hours of offline maintenance and gigabytes of data. Today applications are deployed on everything from mobile devices to cloud-based clusters running thousands of multicore processors. Users expect millisecond response times and 100% uptime. Data needs are expanding into the petabytes._
 
-昨今、アプリケーションに求められる要件は劇的に変化してきました。わずか数年前、大きなアプリケーションは、数十のサーバー、何秒かの応答時間、何時間ものオフラインでのメンテナンス、ギガバイト級のデータから構成されていました。今日、アプリケーションは、モバイルデバイスから数千ものプロセッサが動作するクラウドベースのクラスタまでのすべてにデプロイされます。ユーザーはミリ秒単位のレスポンス時間と100%の可用性を要求します。データのニーズはペタバイト級に膨らんでいます。
+昨今、アプリケーションに求められる要件は劇的に変化してきました。わずか数年前、大きなアプリケーションは、数十のサーバー、何秒かの応答時間、何時間かのオフラインでの保守作業、ギガバイト級のデータから構成されていました。今日では、アプリケーションはモバイルデバイスから数千のマルチコアプロセッサが稼働するクラウドベースのクラスタまでの全ての環境にデプロイされます。ユーザーはミリ秒単位のレスポンス時間と100%の可用性を要求します。データの需要はペタバイト級に膨らんでいます。
 
 _Initially the domain of innovative internet-driven companies like Google or Twitter, these application characteristics are surfacing in most industries. Finance and telecommunication were the first to adopt new practices to satisfy the new requirements and others have followed._
 
-最初に、Google や　Twitter のような革新的なインターネット駆動の企業の領域、これらのアプリケーションの特徴が多くの業界で表出しています。金融や通信業界が、新しい要求を満たすために新しいプラクティスを適用した先駆者であり、その他の業界が続いています。
+当初は、Google や Twitter のような革新的なインターネットドリブンな企業の周辺において、多くの分野でこれらのアプリケーションの特徴が表出しています。金融や通信業界が新しい要求を満たすために新しいプラクティスを適用した先駆者であり、その他の業界が続いています。
 
 _New requirements demand new technologies. Previous solutions have emphasized managed servers and containers. Scaling was achieved through buying larger servers and concurrent processing via multi-threading. Additional servers were added through complex, inefficient and expensive proprietary solutions._
 
-新しい要求は、新しい技術を要求します。以前のソリューションは、管理されたサーバとコンテナに重点をおいていました。スケーリングは、新しい大きなサーバを購入しマルチスレッドによる同時実行プロセスによって成し遂げられました。追加のサーバは複雑で非効率で高価なプロプライエタリなソリューションを通じて追加されました。
+新しい要求は、新しい技術を要求します。以前のソリューションは、管理されたサーバとコンテナに重点をおいていました。スケーリングは、より大きなサーバを購入しマルチスレッドによる並行実行処理によって成し遂げられました。追加のサーバは複雑で非効率で高価なプロプライエタリなソリューションを通じて追加されました。
 
 _But now a new architecture has evolved to let developers conceptualize and build applications that satisfy today’s demands. We call these *Reactive Applications*. This architecture allows developers to build systems that are *event-driven, scalable, resilient and interactive*: delivering highly interactive user experiences with a real-time feel, backed by a scalable and resilient application stack, ready to be deployed on multicore and cloud computing architectures. The Reactive Manifesto describes these critical traits which are needed for *going reactive*._
 
-しかし、今や新しいアーキテクチャが進化してきており、開発者が今日の要求を満たすコンセプトを作成したりアプリケーションを構築することができるようになってきました。私達は、これらを  *リアクティブ・アプリケーション* を呼びます。このアーキテクチャは、開発者に *イベント駆動で、スケーラブルで、回復力があり、インタラクティブな* システムを構築することを可能にします。 それは、リアルタイム感のある高度にインタラクティブなユーザー体験を提供し、スケーラブルで回復力のあるアプリケーションのスタックがバックエンドにあり、マルチコアでクラウドコンピューティングアーキテクチャに配置可能です。リアクティブ・マニフェストは、*リアクティブに向かう*ために必要なこれらの決定的な特徴について記述します。
-
+しかし、今や新しいアーキテクチャが進化してきており、開発者が今日の要求を満たすコンセプトを作成したりアプリケーションを構築することができるようになってきました。私達は、これらを  *リアクティブ・アプリケーション* と呼びます。このアーキテクチャは、開発者に *イベント駆動で、スケーラブルで、回復力があり、インタラクティブな* システムを構築することを可能にします。 それは、リアルタイム感のある、高度にインタラクティブなユーザー体験を提供し、スケーラブルで回復力のあるアプリケーションのスタックに支えられ、マルチコアでクラウドコンピューティングのアーキテクチャにデプロイ可能です。リアクティブ・マニフェストは、*リアクティブに向かう*ために必要なこれらの決定的に重要な特徴について記述します。
 
 ## リアクティブ・アプリケーション Reactive Applications
 
 _Merriam-Webster defines reactive as *“readily responsive to a stimulus”*, i.e. its components are “active” and always ready to receive events. This definition captures the essence of reactive applications, focusing on systems that:_
 
-Merriam-Webster (訳注: オンライン辞書、[Merriam-Webster](http://www.merriam-webster.com/) は、リアクティブを *"刺激に対して直ちに反応する"* と定義しています。すなわち、そのコンポーネントは、"アクティブ" であり、常にイベントを受け付けられるようになっています。この定義は、リアクティブ・アプリケーションの要諦を捉えています、システムにフォーカスした時：
+Merriam-Webster (訳注: オンライン辞書、[Merriam-Webster](http://www.merriam-webster.com/)) は、リアクティブを *"刺激に対して直ちに反応する"* と定義しています。すなわち、そのコンポーネントは、"アクティブ" であり、常にイベントを受け付けられるようになっています。この定義は、リアクティブ・アプリケーションの要諦を捉えています、システムに着目した時以下の様なことが言えます。
 
 - *react to events*: _the event-driven nature enables the following qualities_
 - *react to load*: _focus on scalability rather than single-user performance_
 - *react to failure*: _build resilient systems with the ability to recover at all levels_
 - *react to users*: _combine the above traits for an interactive user experience_
 
-- *イベントに反応*: イベント駆動という性質は、結果として高品質を可能にする
-- *読み込みに反応*: ひとりのユーザのパフォーマンスよりスケーラビリティに注力する
-- *失敗に反応*: すべてのレベルで回復することができる回復力のあるシステムを構築する
-- *ユーザーに反応*: 上記の特徴をインタラクティブなユーザー体験に混ぜ合わせる	
+- *イベントに反応する*: イベント駆動という性質は、結果として高品質を可能にする
+- *読み込みに反応する*: ひとりのユーザのパフォーマンスよりスケーラビリティに注力する
+- *失敗に反応する*: すべてのレベルにおいて立ち直ることができる回復力のあるシステムを構築する
+- *ユーザーに反応する*: 上記の特徴群をインタラクティブなユーザー体験に混ぜ合わせる	
 
 _Each one of these is an essential characteristic of a reactive application. While there are dependencies between them, these traits are not like tiers in a standard layered application architecture sense. Instead they describe design properties that apply across the whole technology stack._
 
-これらは、どれもリアクティブ・アプリケーションの本質的な特徴	です。これらは互いに依存関係がある一方で、標準的なレイヤー化されたアプリケーションアーキテクチャで意味するところの階層のような関係ではありません。むしろ、技術スタック全体に適用するような設計の属性について述べています。
+これらは、どれもリアクティブ・アプリケーションの本質的な特性を表します。これらは互いに依存関係がある一方で、標準的なレイヤー化されたアプリケーションアーキテクチャで意味するところの階層のような関係ではありません。むしろ、技術スタック全体に適用するような設計の属性について述べているものです。
 
 ![fig. 1 The Reactive Traits](../images/stack.png)
 
 _In the following we will take a deeper look at each of the four qualities and see how they relate to each other._
 
-以降、これらの本質をもっと深く見ていき、どのようにお互いに関係するかを見ていきます。
+これ以降、これら四つの本質をもっと深く見ていき、お互いにどのように関係するかを見ていきます。
 
 ## イベント駆動 Event-driven
 
@@ -57,29 +56,31 @@ _In the following we will take a deeper look at each of the four qualities and s
 
 _An application based on asynchronous communication implements a *loosely coupled* design, much better so than one based purely on synchronous method calls. The sender and recipient can be implemented without regards to the details of how the events are propagated, allowing the interfaces to focus on the content of the communication. This leads to an implementation which is easier to extend, evolve and maintain, giving you more flexibility and reducing maintenance cost._
 
-非同期通信をベースとしたアプリケーションは、純粋に動機的なメソッドコールをベースとしたアプリケーションより、とてもよく *疎結合な* デザインを実装します。送信者と受信者は、イベントがどのように伝播されるかの詳細を留意することなく実装され、通信の内容に注力するインターフェースを可能にする。これにより拡張、進化、保守することが容易な実装となり、より多くの柔軟性を提供し、保守コストを低減することができます。
+非同期通信をベースとしたアプリケーションは、純粋に動機的なメソッド呼び出しをベースとしたアプリケーションより、非常に素晴らしく *疎結合な* 様式を実装します。送信者と受信者は、イベントがどのように伝播されるかの詳細を留意することなく実装され、通信の内容に注力したインターフェースを可能にします。これにより拡張、進化、保守することが容易な実装となり、より優れた柔軟性を提供し、保守コストを低減することができます。
 
 _Since the recipient of asynchronous communication can remain dormant until an event occurs or a message is received, an event-driven approach can make efficient use of existing resources, allowing large numbers of recipients to share a single hardware thread. A non-blocking application that is under heavy load can thus have *lower latency and higher throughput* than a traditional application based on blocking synchronization and communication primitives. This results in lower operational costs, increased utilization and happier end-users._
 
-非同期通信における受信者は、イベントが発生するかメッセージを受領するまで休止したままであるため、イベント駆動アプローチはリソースを効率的利用でき、多くの受信者がひとつのハードウェアスレッドを共有できます。重い負荷がかかっているノンブロッキングなアプリケーションは、 原始的なブロッキングの同期と通信に基づく伝統的なアプリケーションに比べて、*より短い遅延とより高いスループット* を実現することができます。その結果、より低い運用時のコストと、高い利用性、よりハッピーなエンドユーザーへつながります。
+非同期通信における受信者は、イベントが発生するかメッセージを受領するまで休止したままであるため、イベント駆動アプローチはリソースを効率的に利用でき、多くの受信者がひとつのハードウェアスレッドを共有できます。重い負荷がかかっている状態においてもノンブロッキングなアプリケーションは、 ブロッキングの同期と原始的な通信に基づく伝統的なアプリケーションに比べて、 *より短い遅延とより高いスループット* を実現することができます。その結果、より低い運用時のコストと、より高い可用性、よりハッピーなエンドユーザーへつながります。
 
 ### キーとなる構成要素 Key Building Blocks
 
 _In an event-driven application the components interact with each other through the production and consumption of *events* — discrete pieces of information describing facts. These events are sent and received in an asynchronous and non-blocking fashion. Event-driven systems tend to rely on *push* rather than *pull* or *poll*, i.e. they push data towards consumers when it is available instead of wasting resources by having the consumers continually ask for or wait on the data._
 
-イベント駆動のアプリケーションにおいては、コンポーネントは *イベント* - 事象を描く個々の情報のかけら - の生産と消費を通じてお互いに作用します。イベント駆動システムは、*プル* や *ポーリング* よりも *プッシュ* に依存する傾向があります。すなわち、消費者に継続的にデータを訪ねさせたり、データの到着を待たせてたりしてリソースを浪費してしまう代わりに、可能である限り消費者の方にデータをプッシュします。
+イベント駆動のアプリケーションにおいては、コンポーネントは *イベント* - 事象を描く個々の情報のかけら - の生産と消費を通じてお互いに作用します。これらのイベントは、非同期でノンブロッキングな作法で送信したり受信したりします。イベント駆動システムは、 *プル* や *ポーリング* よりも *プッシュ* に頼る傾向があります。すなわち、消費者に継続的にデータを訪ねさせたり、データの到着を待たせたりしてリソースを浪費してしまう代わりに、可能な限り消費者に向かってデータをプッシュします。
 
 - *Asynchronous*     _sending of events — also called *message-passing* — means that the application is highly concurrent by design and can make use of multicore hardware without changes. Any core within a CPU is able to process any message event, leading to a dramatic increase in opportunities for parallelization._
 - *Non-blocking* _means that the application is very efficient in terms of hardware utilization since inactive components are suspended and their resources are released, to be used by other components._
 
-- *非同期* イベントの送信 - *メッセージ受け渡しとも呼ばれる* - は、アプリケーションが生まれながらに高い同時実行性を実現し、マルチコアのハードウェアを何も変更することなく活用できることを意味する。CPU のどのコアにおいても、どのメッセージイベントを処理する小尾ができ、並列化の機会を劇的に増加させることとなる。
-- *ノンブロッキング* は、不活性なコンポーネントはサスペンドされ、リソースが開放され、他のコンポーネントに利用されるため、ハードウェアの活用という点において、アプリケーションは非常に効率的であるということを意味する。
+- *非同期* イベントの送信 - *メッセージ受け渡しとも呼ばれる* - は、アプリケーションが計画的に高い並行実行性を実現し、マルチコアのハードウェアを何も変更することなく活用できることを意味する。ひとつのCPU 上のどのコアにおいても、どのメッセージイベントを処理することができ、並列化の機会を劇的に増加させることとなる。
+- *ノンブロッキング* は、不活性なコンポーネントはサスペンドされ、リソースが開放され、他のコンポーネントに利用されるため、アプリケーションがハードウェアの活用という点において非常に効率的であるということを意味する。
 
 _Traditional server-side architectures rely on shared mutable state and blocking operations on a single thread. Both contribute to the difficulties encountered when scaling such a system to meet changing demands. Sharing mutable state requires synchronization, which introduces incidental complexity and non-determinism, making the program code hard to understand and maintain. Putting a thread to sleep by blocking uses up a finite resource and incurs a high wake-up cost._
 
-伝統的なサーバーサイドのアーキテクチャは、単一スレッド上の共有のミュータブルステートとブロッキング操作に依っている。変わりうる要求を満たすためにシステムがスケールとき、それらの両方ともが困難に突き当たる(ToDo)。共有されたミュータブルステートは同期を要求し、それは偶発的な複雑さと非決定性を生み出し、プログラムコードを理解しづらく保守しづらくします。ブロッキングによってスレッドをスリープさせることは、限られたリソースを使い切り、高いウェイクアップコストを招くことになります。
+伝統的なサーバサイドのアーキテクチャは、単一スレッド上の共有された可変ステートとブロッキング操作に依っています。システムが要求の変更を満たすためにスケールしたいときに、それらの両方ともが困難を引き起こす要因となるでしょう。共有された可変ステートは同期を要求し、それは偶発的な複雑さと非決定性を生み出し、コードを理解しづらく保守しづらくします。ブロッキングによってスレッドをスリープさせることで、限られたリソースを使い切り、また、高いウェイクアップコストを招くことになります。
 
 _The decoupling of event generation and processing allows the runtime platform to take care of the synchronization details and how events are dispatched across threads, while the programming abstraction is raised to the level of business workflows. You think about how events propagate through your system and how components interact instead of fiddling around with low-level primitives such as threads and locks._
+
+★
 
 イベント生成と処理のデカップリングによって、ランタイムのプラットフォームは同期の詳細とスレッド間でどのようにイベントを振り分けるかを気遣うことができ、一方でプログラムの抽象化は、ビジネスワークフローのレベルまで引き上げられます。スレッドやロックと知った低レベルでの原始的なつまらないことにではなく、どのようにイベントがシステム内で伝播するか、どのようにコンポーネント群が相互に作用するかについて、あなたは考えることができます。
 
@@ -89,7 +90,7 @@ _Event-driven systems enable loose coupling between components and subsystems. T
 
 When applications are stressed by requirements for high performance and large scalability it is difficult to predict where bottlenecks will arise. Therefore it is important that the entire solution is asynchronous and non-blocking. In a typical example this means that the design needs to be event-driven from the user request in the UI (in the browser, REST client or elsewhere) to the request parsing and dispatching in the web layer, to the service components in the middleware, through the caching and down to the database. If one of these layers does not participate — making blocking calls to the database, relying on shared mutable state, calling out to expensive synchronous operations — then the whole pipeline stalls and users will suffer through increased latency and reduced scalability.
 
-アプリケーションが高い性能と大きなスケーラビリティの要求によってストレスされたとき(ToDo)、どこにボトルネックが発生するかを予測することは困難です。したがって、ソリューション全体が非同期でノンブロッキングになることが重要です。典型的な例において、UIにおけるユーザーリクエスト(ブラウザ、RESTクライアント、他)から、リクエスト解析とウェブレイヤーでの振り分け、ミドルウェアでのサービスコンポーネント、そして、キャッシングやデータベースへ下るところまで、イベント駆動なデザインである必要があります。もし、これらのレイヤーのうち、ひとつでも参加しないのなら、- たとえば、データベースへのブロッキングコール、共有可変状態(ミュータブルステート)への依存、高価な同期的操作の呼び出しなど - そのとき、全体のパイプラインは行き詰まり、ユーザーは遅延の増加とスケーラビリティの現象に苦しむことになります。
+アプリケーションが高い性能と大きなスケーラビリティの要求によってストレスされたとき(ToDo)、どこにボトルネックが発生するかを予測することは困難です。したがって、ソリューション全体が非同期でノンブロッキングになることが重要です。典型的な例において、UIにおけるユーザーリクエスト(ブラウザ、RESTクライアント、他)から、リクエスト解析とウェブレイヤーでの振り分け、ミドルウェアでのサービスコンポーネント、そして、キャッシングやデータベースへ下るところまで、イベント駆動な様式である必要があります。もし、これらのレイヤーのうち、ひとつでも参加しないのなら、- たとえば、データベースへのブロッキングコール、共有可変状態(ミュータブルステート)への依存、高価な同期的操作の呼び出しなど - そのとき、全体のパイプラインは行き詰まり、ユーザーは遅延の増加とスケーラビリティの現象に苦しむことになります。
 
 An application must be *reactive from top to bottom*.
 
@@ -147,7 +148,7 @@ Merriam-Webster は、resilience を次のように定義しています。
 
 _In a reactive application resilience is not an afterthought but part of the design from the beginning. Making failure a first class construct in the programming model provides the means to react to and manage it, which leads to applications that are highly tolerant to failure by being able to heal and repair themselves at runtime. Traditional fault handling cannot achieve this because it is defensive in the small and too aggressive in the large — you either handle exceptions right where and when they happen or you initiate a failover of the whole application instance._
 
-リアクティブなアプリケーションにおいて、回復力は後から考えるものではなく、当初の設計の一部です。そのプログラミングモデルにおいて失敗をファーストクラスの構成物としてみなすことは、反射することと管理するという意味を与えます。実行時に回復でき修復できることで失敗に対しての高い耐久力があるアプリケーションへと導きます。伝統的な失敗への対処では、小さな環境では防御的すぎて、大きな環境では挑戦的すぎるため、これを達成することができません。- いつどこで起ころうと、例外を(ひとつひとつ)
+リアクティブ・アプリケーションにおいて、回復力は後から考えるものではなく、当初の設計の一部です。そのプログラミングモデルにおいて失敗をファーストクラスの構成物としてみなすことは、反射することと管理するという意味を与えます。実行時に回復でき修復できることで失敗に対しての高い耐久力があるアプリケーションへと導きます。伝統的な失敗への対処では、小さな環境では防御的すぎて、大きな環境では挑戦的すぎるため、これを達成することができません。- いつどこで起ころうと、例外を(ひとつひとつ)
 正しく対処するか、アプリケーションインスタンス全体にフェールオーバーを備えるか(の両極端)になってしまいます。
 
 ### キーとなる構成要素 Key Building Blocks
@@ -184,13 +185,13 @@ Users are empowered when they can interact with data that is transformed into me
 
 Build upon an event-driven foundation, reactive applications are well equipped to be interactive. Scalability is necessary to retain this property when the application becomes popular, and resilience ensures that its users will continually enjoy its function.
 
-イベント駆動の基礎の上に構築することで、リアクティブなアプリケーションは、インタラクティブ性も同時にうまく備えています。スケーラビリティは、アプリケーションに人気が出てきた時、この属性(？)を保つことは必須です。回復力はユーザーが継続的にその機能を楽しみ続けることを確かにします(？)。
+イベント駆動の基礎の上に構築することで、リアクティブ・アプリケーションは、インタラクティブ性も同時にうまく備えています。スケーラビリティは、アプリケーションに人気が出てきた時、この属性(？)を保つことは必須です。回復力はユーザーが継続的にその機能を楽しみ続けることを確かにします(？)。
 
 ### キーとなる構成要素 Key Building Blocks
 
 Reactive applications use observable models, event streams and stateful clients.
 
-リアクティブなアプリケーションは、観察可能なモデルとイベントストリーム、ステートフルなクライアントです。	
+リアクティブ・アプリケーションは、観察可能なモデルとイベントストリーム、ステートフルなクライアントです。	
 
 Observable models enable other components to receive events when state changes. This can provide a real-time connection between users and systems. For example, when multiple users work concurrently on the same dataset, changes can be reactively synchronized bi-directionally between them.
 
@@ -202,7 +203,7 @@ Event streams form the basic abstraction on which this connection is built. Keep
 
 Most reactive applications have rich web and mobile clients which create an engaging user experience. These applications execute logic and store state on the client-side in which observable models provide a mechanism to update user interfaces in real-time when data changes. Technologies like WebSockets or Server-Sent Events enable user interfaces to be connected directly with event streams so the event-driven system extends all the way from the back-end to the client. This allows reactive applications to push events to browser and mobile applications in a scalable and resilient way by using asynchronous and non-blocking data transfer.
 
-もっともリアクティブなアプリケーションは、魅力あるユーザー体験を創りだすリッチなウェブとモバイルクライアントです。これらのアプリケーションは、観察可能なモデルがデータが変更された時にリアルタイムでユーザーインタフェースを更新する機甲を提供するクライアントサイドで、ロジックを実行し状態を保持する(？)。Web Socket や サーバプッシュ型イベントのような技術は、イベントストリームに直接的に接続されるユーザーインタフェースを可能にし、イベント駆動システムは、バックエンドからクライアントまで全ての道筋に広げることができます。これにより、リアクティブなアプリケーションは、非同期やノンブロッキングなデータ移送によってスケーラブルで回復力のある方法でイベントをブラウザやモバイルアプリケーションにプッシュすることが可能になります。
+もっともリアクティブ・アプリケーションは、魅力あるユーザー体験を創りだすリッチなウェブとモバイルクライアントです。これらのアプリケーションは、観察可能なモデルがデータが変更された時にリアルタイムでユーザーインタフェースを更新する機甲を提供するクライアントサイドで、ロジックを実行し状態を保持する(？)。Web Socket や サーバプッシュ型イベントのような技術は、イベントストリームに直接的に接続されるユーザーインタフェースを可能にし、イベント駆動システムは、バックエンドからクライアントまで全ての道筋に広げることができます。これにより、リアクティブ・アプリケーションは、非同期やノンブロッキングなデータ移送によってスケーラブルで回復力のある方法でイベントをブラウザやモバイルアプリケーションにプッシュすることが可能になります。
 
 With this in mind it becomes apparent how the four qualities *event-driven*, *scalable*, *resilient* and *interactive* are interconnected to form a cohesive whole:
 
@@ -214,16 +215,15 @@ With this in mind it becomes apparent how the four qualities *event-driven*, *sc
 
 Reactive applications represent a balanced approach to addressing a wide range of contemporary challenges in software development. Building on an *event-driven*, message-based foundation, they provide the tools needed to ensure *scalability* and *resilience*. On top of this they support rich, real-time user *interactions*. We expect that a rapidly increasing number of systems will follow this blueprint in the years ahead.
 
-リアクティブなアプリケーションは、ソフトウェア開発における幅広い現代の困難に向けてのバランスのとれたアプローチを象徴するものです。*イベント駆動* のメッセージを基礎とした基盤の上に構築することで、*スケーラビリティ* と *回復力* を確かにするの必要なツールを提供します。この基板の上に、それらはリッチでリアルタイムなユーザーとの *インタラクション* を支援します。私たちは、急速に増加するシステムがこの見取り図に従っていき何年も先に進んでいくことを期待しています。
+リアクティブ・アプリケーションは、ソフトウェア開発における幅広い現代の困難に向けてのバランスのとれたアプローチを象徴するものです。*イベント駆動* のメッセージを基礎とした基盤の上に構築することで、*スケーラビリティ* と *回復力* を確かにするの必要なツールを提供します。この基板の上に、それらはリッチでリアルタイムなユーザーとの *インタラクション* を支援します。私たちは、急速に増加するシステムがこの見取り図に従っていき何年も先に進んでいくことを期待しています。
 
 [マニフェストにサインしよう(本家へ)](http://www.reactivemanifesto.org/)
 
-## 訳メモ
+## 訳メモ Translation Notes
 
-* event-driven は、すべて「イベント駆動」にしました。イベントドリブンでもよかったのかもしれません。
 * リアクティブは、敢えてカタカナのままにしました。もし、訳すとしたら反応的ないしは反射的でしょうか。反応的アプリケーション、反応的な設計 ・・・。
+* event-driven は、すべて「イベント駆動」にしました。イベントドリブンも、それなりに市民権を得ていると思われます。
 * デプロイと配置は微妙に雰囲気で使い分けました。
-* ノンブロッキングには適切な日本語はなく、また、普及した用語であるとみなしました。
+* ノンブロッキング、インタラクティブは下手に日本語化するより、カタカナのほうが一般的であると判断しました。
 * レジリエントは、カタカナのままで使うことも考えましたが、それほど一般的ではないため”回復力の/がある”としました。
-
-デカップリング
+* shared mutable state は、シェアード・ミュータブル・ステートでも共有可変状態でも通じそうですが、共有された可変ステートにしてみました・・・。
