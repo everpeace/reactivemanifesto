@@ -174,39 +174,37 @@ _The beauty of this model is that it is purely event-driven, based upon reactive
 
 _Interactive applications are real-time, engaging, rich and collaborative. Businesses create an open and ongoing dialog with their customers by welcoming them through interactive experiences. This makes them more efficient, creates a feel of being connected and equipped to solve problems and accomplish tasks. One example is Google Docs which enables users to edit documents collaboratively, in real-time — allowing them to see each other’s edits and comments live, as they are made._
 
-★
-
-インタラクティブなアプリケーションは、リアルタイムであり、魅力があり、リッチでコラボレーションに富んでいます。ビジネスは、インタラクティブな体験を通して顧客を歓迎し、オープンで継続的な対話を作ります。これにより、ビジネスはより効率的になり、問題を解決しタスクを完遂するために繋がり続け備え付けられた感じを提供します。ひとつの例ですが、Google Docs は、ドキュメントをリアルタイムに協力して編集することを可能にます。- それらが作られたかのように(？)、お互いの編集とコメントを見ながらです。
+インタラクティブなアプリケーションは、リアルタイムであり、魅力があり、リッチでコラボレーションに富んでいます。ビジネスは、インタラクティブな体験を通して顧客を歓迎し、顧客とのオープンで継続的な対話を作ります。これにより、顧客の能率は向上し、問題を解決し作業を完遂するための繋がっている感じと設備が整った感じを提供します。ひとつの例ですが、Google Docs は、作業している間、お互いの変更とコメントをライブで見ながらリアルタイムに協力して編集することを可能にます。
  
 _Users are empowered when they can interact with data that is transformed into meaningful information in real-time. Interactive applications make collaboration on this information inherent in every interface so people communicate more effectively and more often; this is deepened further by increasing the feedback granularity from traditional whole-page behavior down to a per-item level, e.g. in a single-page email web-client. Instantaneous social interactions over large distances are radically transforming how people engage with information and with each other. For instance, GitHub is revolutionizing developer collaboration through “Social Coding” with an interactive browser-based application and of course Twitter has profoundly changed the way news are spread._
 
-リアルタイムでデータが意味ある情報に変換されて相互作用する時、ユーザーは力付けられます(？)。インタラクティブなアプリケーションは、どのインタフェースにおいても引き継いでいくこの情報を作り出します。伝統的なページ全体の扱いからアイテムレベルにフィードバックを小さく増やしていくことでもっと深くに行きます。 例としてEメールのシングル・ページのウェブクライアントがあります。遠い距離を超えた瞬時のソーシャルなインタラクションは、人々がどのように情報と向き合い、お互いにやりとりしていくかを根本的に変えていきます。たとえば、GitHub は、インタラクティブなブラウザベースのアプリケーションにより、"Social Coding" を通じて開発者のコラボレーションに革命を起こしつつあります。もちろん、Twitter は、ニュースが拡散する方法を根本的に変えてきました。
+リアルタイムで意味ある情報に変換されたデータと相互作用することができるなら、ユーザーは力を与えられます。インタラクティブなアプリケーションは、どのインタフェースにも本来的に備わっているこの情報とコラボレートすることで、もっと効率的にもっと頻繁にコミュニケーションをとれるようになります。伝統的なページ全体の扱いからアイテムレベルにフィードバックを小さく増やしていくことでもっと深まっていきます。 例として、Eメールのシングル・ページのウェブクライアントがあります。遠い距離を超えた瞬時のソーシャルなインタラクションは、人々がどのように情報と向き合い、お互いにやりとりしていくかを根本的に変えていきます。たとえば、GitHub は、インタラクティブなブラウザベースのアプリケーションにより、"ソーシャル・コーディング" を通じて開発者のコラボレーションに革命を起こしつつあります。もちろん、Twitter は、ニュースが拡散する方法を根本的に変えてきました。
 
 _Build upon an event-driven foundation, reactive applications are well equipped to be interactive. Scalability is necessary to retain this property when the application becomes popular, and resilience ensures that its users will continually enjoy its function._
 
-イベント駆動の基礎の上に構築することで、リアクティブ・アプリケーションは、インタラクティブ性も同時にうまく備えています。スケーラビリティは、アプリケーションに人気が出てきた時、この属性(？)を保つことは必須です。回復力はユーザーが継続的にその機能を楽しみ続けることを確かにします(？)。
+イベント駆動の基礎の上に構築することで、リアクティブ・アプリケーションはインタラクティブ性も同時にうまく備えます。スケーラビリティは、アプリケーションに人気が出てきた時にも、この属性を保ち続けることは必須です。回復力はユーザーが継続的にその機能を楽しみ続けることを確実にします。
 
 ### キーとなる構成要素 Key Building Blocks
 
 _Reactive applications use observable models, event streams and stateful clients._
 
-リアクティブ・アプリケーションは、観察可能なモデルとイベントストリーム、ステートフルなクライアントです。	
+リアクティブ・アプリケーションは、観察可能なモデルとイベントストリーム、ステートフルなクライアントを利用します。	
 
 _Observable models enable other components to receive events when state changes. This can provide a real-time connection between users and systems. For example, when multiple users work concurrently on the same dataset, changes can be reactively synchronized bi-directionally between them._
 
-観察可能なモデルは、他のコンポーネントが状態が変化した時にイベントを受け取ることを可能にします。これは、ユーザーとシステムの間にリアルタイムの接続を提供します。たとえば、複数のユーザーが同じデータセットに同時並行的に作用するとき、変更は、リアクティブにそれらの間で双方向に同期することができます。
+観察可能なモデルは、状態が変化した時に他のコンポーネントがイベントを受け取ることを可能にします。これは、ユーザーとシステムの間にリアルタイムの接続を提供します。たとえば、複数のユーザーが同じデータセットに同時並行的に作業するとき、変更はリアクティブに彼らの間で双方向に同期されます。
 
 _Event streams form the basic abstraction on which this connection is built. Keeping them reactive means avoiding blocking and instead allowing asynchronous and non-blocking transformations. For example a stream of real-time data could be passed through a live projection that produces a new stream of analyzed data._
 
-イベント・ストリームは、この接続が構築されたところに基本的な抽象性を形作る(？) それらをリアクティブに保つことはブロッキングを避ける事を意味し、代わりに非同期でノンブロッキングな変換を可能にします。たとえば、リアルタイムデータのストリームは、解析されたデータの新たなストリームを生み出す生の投影(？)を通じて受け渡されます。
+イベント・ストリームは、この接続が構築されるための基本的な抽象化を形成します。 それらをリアクティブに保つことはブロッキングを避ける事を意味し、代わりに非同期でノンブロッキングな変換を可能にします。たとえば、リアルタイムデータのストリームは、解析されたデータの新たなストリームを生み出す鮮やかな射影を通して受け渡されます。
 
 _Most reactive applications have rich web and mobile clients which create an engaging user experience. These applications execute logic and store state on the client-side in which observable models provide a mechanism to update user interfaces in real-time when data changes. Technologies like WebSockets or Server-Sent Events enable user interfaces to be connected directly with event streams so the event-driven system extends all the way from the back-end to the client. This allows reactive applications to push events to browser and mobile applications in a scalable and resilient way by using asynchronous and non-blocking data transfer._
 
-もっともリアクティブ・アプリケーションは、魅力あるユーザー体験を創りだすリッチなウェブとモバイルクライアントです。これらのアプリケーションは、観察可能なモデルがデータが変更された時にリアルタイムでユーザーインタフェースを更新する機甲を提供するクライアントサイドで、ロジックを実行し状態を保持する(？)。Web Socket や サーバプッシュ型イベントのような技術は、イベントストリームに直接的に接続されるユーザーインタフェースを可能にし、イベント駆動システムは、バックエンドからクライアントまで全ての道筋に広げることができます。これにより、リアクティブ・アプリケーションは、非同期やノンブロッキングなデータ移送によってスケーラブルで回復力のある方法でイベントをブラウザやモバイルアプリケーションにプッシュすることが可能になります。
+最もリアクティブなアプリケーションは、魅力あるユーザー体験を創りだすリッチウェブとモバイルクライアントです。これらのアプリケーションは、データが変更された時にリアルタイムでユーザーインタフェースを更新する機構を提供する観察可能なモデルのもと、クライアントサイドでロジックを実行し状態を保持します。Web Socket や サーバプッシュ型イベントのような技術は、イベントストリームに直接的に接続されるユーザーインタフェースを可能にし、イベント駆動システムはバックエンドからクライアントまで全体にわたってに広がることができます。これにより、リアクティブ・アプリケーションは、非同期やノンブロッキングなデータ移送によって、スケーラブルで回復力のある方法で、イベントをブラウザやモバイルアプリケーションにプッシュすることが可能になります。
 
 _With this in mind it becomes apparent how the four qualities *event-driven*, *scalable*, *resilient* and *interactive* are interconnected to form a cohesive whole:_
 
-この点を念頭に置くと、四つの本質、*イベント駆動* と *スケーラブル*、*回復力がある*、*インタラクティブ* は凝集性のある全体(？)から相互接続されることが明らかになってきます。
+この点を念頭に置くと、凝集性のある全体像を形作るために、四つの本質である *イベント駆動* と *スケーラブル*、*回復力がある*、*インタラクティブ* がどのように相互に関連しているかが明らかになります。
 
 ![fig 4. The Reactive Traits](../images/full-reactive.png)
 
@@ -214,17 +212,7 @@ _With this in mind it becomes apparent how the four qualities *event-driven*, *s
 
 _Reactive applications represent a balanced approach to addressing a wide range of contemporary challenges in software development. Building on an *event-driven*, message-based foundation, they provide the tools needed to ensure *scalability* and *resilience*. On top of this they support rich, real-time user *interactions*. We expect that a rapidly increasing number of systems will follow this blueprint in the years ahead._
 
-リアクティブ・アプリケーションは、ソフトウェア開発における幅広い現代の困難に向けてのバランスのとれたアプローチを象徴するものです。*イベント駆動* のメッセージを基礎とした基盤の上に構築することで、*スケーラビリティ* と *回復力* を確かにするの必要なツールを提供します。この基板の上に、それらはリッチでリアルタイムなユーザーとの *インタラクション* を支援します。私たちは、急速に増加するシステムがこの見取り図に従っていき何年も先に進んでいくことを期待しています。
+リアクティブ・アプリケーションは、ソフトウェア開発における幅広い現代の困難に向けてのバランスのとれたアプローチを示します。*イベント駆動* のメッセージをベースとした基盤上に構築され、*スケーラビリティ* と *回復力* を確かにするために必要な道具を提供します。そして、その上でリッチでリアルタイムなユーザー *インタラクション* を支えられるのです。私たちは、ここ何年かのうちに急速に増加しつつあるシステムたちがこの見取り図に追随してくれることを期待しています。
 
 [マニフェストにサインしよう(本家へ)](http://www.reactivemanifesto.org/)
-
-## 訳メモ Translation Notes
-
-* リアクティブは、敢えてカタカナのままにしました。もし、訳すとしたら反応的ないしは反射的でしょうか。反応的アプリケーション、反応的な設計 ・・・。
-* event-driven は、すべて「イベント駆動」にしました。イベントドリブンも、それなりに市民権を得ていると思われます。
-* デプロイと配置は微妙に雰囲気で使い分けました。
-* ノンブロッキング、インタラクティブ、スケールアウト、スケールアップは下手に日本語化するより、カタカナのほうが一般的であると判断しました。
-* レジリエントは、カタカナのままで使うことも考えましたが、それほど一般的ではないため”回復力の/がある”としました。
-* shared mutable state は、シェアード・ミュータブル・ステートでも共有可変状態でも通じそうですが、共有された可変ステートにしてみました・・・。
-* message-passoing は、単に"メッセージ受け渡し"にしようかと思いましたが、ハイフンを含めた原文の意図を汲み単語っぽくさせて、"メッセージ授受"としました。
 
